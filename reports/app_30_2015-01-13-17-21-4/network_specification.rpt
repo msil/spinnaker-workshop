@@ -1,0 +1,46 @@
+        Network Specification
+ =====================
+
+Generated: Tue 13 Jan 2015 05:21:04 PM UTC for target machine '192.168.240.253'
+
+*** Vertices:
+AbstractConstrainedVertex spike_injector_1, size: 1
+Model: ReverseIpTagMultiCastSource
+constraint: key allocator constraint where subedges coming from the vertex requires a specific key and mask which are generated from the function call <bound method ReverseIpTagMultiCastSource.generate_routing_info of <spynnaker_external_devices_plugin.pyNN.control_models.reverse_ip_tag_multi_cast_source.ReverseIpTagMultiCastSource object at 0x7f5586d02bd0>>
+constraint: placer chip and core constraint at coords 0,0,None
+constraint: partitioner same size as other vertex constraint with vertex<spynnaker.pyNN.models.utility_models.delay_extension_vertex.DelayExtensionVertex object at 0x7f5579f8acd0>
+
+AbstractConstrainedVertex pop_2, size: 100
+Model: IF_curr_exp
+constraint: partitioner max atom per core constraint with size 256
+constraint: partitioner same size as other vertex constraint with vertex<spynnaker.pyNN.models.utility_models.delay_extension_vertex.DelayExtensionVertex object at 0x7f5579ad5210>
+
+AbstractConstrainedVertex spike_injector_1_delayed, size: 1
+Model: DelayExtension
+constraint: partitioner same size as other vertex constraint with vertex<spynnaker_external_devices_plugin.pyNN.control_models.reverse_ip_tag_multi_cast_source.ReverseIpTagMultiCastSource object at 0x7f5586d02bd0>
+
+AbstractConstrainedVertex pop_2_delayed, size: 100
+Model: DelayExtension
+constraint: partitioner same size as other vertex constraint with vertexpop_2 with 100 atoms
+
+AbstractConstrainedVertex Monitor, size: 1
+Model: live packet gather
+constraint: partitioner max atom per core constraint with size 1
+constraint: placer chip and core constraint at coords 0,0,None
+
+*** Edges:
+PartitionableEdge Projection 0_to_DE from vertex: 'spike_injector_1' (1 atoms) to vertex: 'spike_injector_1_delayed' (1 atoms)
+  Model: No Model
+
+PartitionableEdge DE to Projection 0 from vertex: 'spike_injector_1_delayed' (1 atoms) to vertex: 'pop_2' (100 atoms)
+  Model: No Model
+
+PartitionableEdge Projection 1_to_DE from vertex: 'pop_2' (100 atoms) to vertex: 'pop_2_delayed' (100 atoms)
+  Model: No Model
+
+PartitionableEdge DE to Projection 1 from vertex: 'pop_2_delayed' (100 atoms) to vertex: 'pop_2' (100 atoms)
+  Model: No Model
+
+PartitionableEdge recorder_edge from vertex: 'pop_2' (100 atoms) to vertex: 'Monitor' (1 atoms)
+  Model: No Model
+

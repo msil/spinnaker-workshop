@@ -1,0 +1,32 @@
+        Placement Information by Core
+        =============================
+
+Generated: Tue 13 Jan 2015 02:31:52 PM UTC for target machine '192.168.240.253'
+
+**** Chip: (0, 0)
+Application cores: 18
+  Processor 1: AbstractConstrainedVertex: 'Monitor', pop sz: 1
+               Slice on this core: 0:0 (1 atoms)
+               Model: live packet gather
+
+
+  Processor 2: AbstractConstrainedVertex: 'input_spike', pop sz: 1
+               Slice on this core: 0:0 (1 atoms)
+               Model: SpikeSourceArray
+
+
+  Processor 3: AbstractConstrainedVertex: 'input_spike_delayed', pop sz: 1
+               Slice on this core: 0:0 (1 atoms)
+               Model: DelayExtension
+
+
+  Processor 4: AbstractConstrainedVertex: 'pop_2', pop sz: 100
+               Slice on this core: 0:99 (100 atoms)
+               Model: IF_curr_exp
+
+
+  Processor 5: AbstractConstrainedVertex: 'pop_2_delayed', pop sz: 100
+               Slice on this core: 0:99 (100 atoms)
+               Model: DelayExtension
+
+

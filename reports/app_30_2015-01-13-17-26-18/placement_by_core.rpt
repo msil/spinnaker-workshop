@@ -1,0 +1,27 @@
+        Placement Information by Core
+        =============================
+
+Generated: Tue 13 Jan 2015 05:26:18 PM UTC for target machine '192.168.240.253'
+
+**** Chip: (0, 0)
+Application cores: 18
+  Processor 1: AbstractConstrainedVertex: 'spike_injector_1', pop sz: 1
+               Slice on this core: 0:0 (1 atoms)
+               Model: ReverseIpTagMultiCastSource
+
+
+  Processor 2: AbstractConstrainedVertex: 'spike_injector_1_delayed', pop sz: 1
+               Slice on this core: 0:0 (1 atoms)
+               Model: DelayExtension
+
+
+  Processor 3: AbstractConstrainedVertex: 'pop_2', pop sz: 100
+               Slice on this core: 0:99 (100 atoms)
+               Model: IF_curr_exp
+
+
+  Processor 4: AbstractConstrainedVertex: 'pop_2_delayed', pop sz: 100
+               Slice on this core: 0:99 (100 atoms)
+               Model: DelayExtension
+
+
